@@ -1,0 +1,24 @@
+{
+  "name": "static-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^6.5.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Malletmania/07-node.js.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Malletmania/07-node.js/issues"
+  },
+  "homepage": "https://github.com/Malletmania/07-node.js#readme"
+}
