@@ -12,22 +12,7 @@ const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
-const questions = [];
-
-// TODO: Create a function to write README file
-// hint: use the fs package to write file
-function writeToFile(fileName, data) {}
-
-
-// TODO: Create a function to initialize app
-// hint start asking the questions here
-function init() {
-    inquirer
-    .prompt([{
-        type: 'input',
-        message: 'What is your project title?',
-        name: 'title'
-    },
+const questionsArray = [
     {
         type: 'input',
         message: 'In a few words describe the purpose of your file.',
@@ -52,6 +37,26 @@ function init() {
         type: 'input',
         message: 'What are the test instructions',
         name: 'test'
+    },
+];
+
+// TODO: Create a function to write README file
+// hint: use the fs package to write file
+function writeToFile(fileName, data) {}
+// TODO: Create a function to initialize app
+// hint start asking the questions here
+function init() {
+    inquirer
+    .prompt([{
+        type: 'input',
+        message: 'What is your project title?',
+        name: 'title'
+    },
+    {
+        type: 'input',
+        name: 'blockquestions',
+        message: 'questions??',
+        choices: questionsArray,
     },
     {
         type: 'list',
