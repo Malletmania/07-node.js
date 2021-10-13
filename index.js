@@ -7,12 +7,23 @@
 //enter email Address
 
 // TODO: Include packages needed for this application
-
+const {writeFile} = require('fs')
 const inquirer = require("inquirer");
-const generateMarkdown = require("./utils/generateMarkdown");
+const generateMarkdown = require("./generateMarkdown");
 
-// TODO: Create an array of questions for user input
-const questionsArray = [
+// TODO: Create a function to write README file
+// hint: use the fs package to write file
+function write(template) {
+    writeFile('README.md', template, err => err ? console.error(err) : console.log('success') )
+}
+// TODO: Create a function to initialize app
+// hint start asking the questions here
+
+inquirer.prompt([{
+        type: 'input',
+        message: 'What is your project title?',
+        name: 'title',
+    },
     {
         type: 'input',
         message: 'In a few words describe the purpose of your file.',
@@ -26,7 +37,7 @@ const questionsArray = [
     {
         type: 'input',
         message: 'What is the usage information?',
-        name: 'Usage'
+        name: 'usage'
     },
     {
         type: 'input',
@@ -37,26 +48,6 @@ const questionsArray = [
         type: 'input',
         message: 'What are the test instructions',
         name: 'test'
-    },
-];
-
-// TODO: Create a function to write README file
-// hint: use the fs package to write file
-function writeToFile(fileName, data) {}
-// TODO: Create a function to initialize app
-// hint start asking the questions here
-function init() {
-    inquirer
-    .prompt([{
-        type: 'input',
-        message: 'What is your project title?',
-        name: 'title'
-    },
-    {
-        type: 'input',
-        name: 'blockquestions',
-        message: 'questions??',
-        choices: questionsArray,
     },
     {
         type: 'list',
@@ -73,26 +64,35 @@ function init() {
         type: 'input',
         message: 'Please enter in your Email Address',
         name: 'email'
-    }
-    ])
-    .then(responses => {
-        // use response data to build a readMe file in string formt that you will store in variable name.
-    const finalReadme = generateMarkdown(responses)
-    })
-}
+    }]).then(data => {const template = `# ${data.title}
+Purpose: ${data.discription}
 
+Installation Instructions: ${data.instructions}
+
+Usage Information: ${data.usage}
+
+Controbution Guidelines: ${data.controbution}
+
+Test Instructions: ${data.test}
+
+License: ${data.license}
+
+# Username: ${data.username}
+
+# Email: ${data.email}`
+    write(template)});
 // Function call to initialize app
-init();
 
 
-const moreQuestions = [
-    ['discription', ''],
-    ['installation', 2],
-    ['usage', 3],
-    ['controbution', 4],
-    ['test', 5]
-];
-
-for (const [input, message, name] of moreQuestions) {
-    console.log(`${input}'s ${message} ${name}`)
-};
+//ref from 20
+// .then( resp => {
+//     const textMessage = `
+//     Here are the answers to the questions:
+//     Name: ${resp.name}
+//     Languages: ${JSON.stringify(resp.languages) }
+//     method: ${resp.method}
+//     `
+//     fs.writeFile("result.txt", textMessage, err => {
+//         err ? console.log("trouble") : console.log("cool")
+//     })
+// });
