@@ -14,11 +14,23 @@ const generateMarkdown = require("./generateMarkdown");
 // TODO: Create a function to write README file
 // hint: use the fs package to write file
 function write(template) {
-    writeFile('README.md', template, err => err ? console.error(err) : console.log('success') )
+    writeFile('README.md', template, generateMarkdown, err => err ? console.error(err) : console.log('success') )
 }
 // TODO: Create a function to initialize app
 // hint start asking the questions here
+// function generateBadge(data){
 
+//     let badge = "";
+//     if(data.license == "MIT"){
+//         badge = "![License](https://img.shields.io/static/v1?label=License&message=MIT&color=blueviolet&style=plastic)"
+//     } else if (data.license == "Apache license 2.0"){
+//         badge = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+//     } else if (data.license == "Boost Software License 1.0"){
+//         badge = "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)"
+//     } else if (data.license == "Eclipse Public License 1.0"){
+//         badge = "[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)"
+//     }
+// }
 
 inquirer.prompt([{
         type: 'input',
@@ -54,7 +66,7 @@ inquirer.prompt([{
         type: 'list',
         message: "Choose a license you'd like your project to have",
         name: 'license',
-        choices: ["Academic Free License v3.0 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)", "Apache license 2.0", "Artistic license 2.0", "Boost Software License 1.0", 'BSD 2-clause "Simplified" license','BSD 3-clause "New" or "Revised" license', "BSD 3-clause Clear license", "Creative Commons license family", "Creative Commons Zero v1.0 Universal", "Creative Commons Attribution 4.0", "Creative Commons Attribution Share Alike 4.0", "Do What The F*ck You Want To Public License", "Educational Community License v2.0", "Eclipse Public License 1.0", "Eclipse Public License 2.0", "European Union Public License 1.1", "GNU Affero General Public License v3.0", "GNU General Public License family", "GNU General Public License v2.0", "GNU General Public License v3.0", "GNU Lesser General Public License family", "GNU Lesser General Public License v2.1", "GNU Lesser General Public License v3.0", "ISC", "LaTeX Project Public License v1.3c", "Microsoft Public License", "MIT", "Mozilla Public License 2.0", "Open Software License 3.0", "PostgreSQL License", "SIL Open Font License 1.1", "University of Illinois/NCSA Open Source License", "The Unlicense", "zLib License"]
+        choices: ["Apache license 2.0", "Boost Software License 1.0", "Eclipse Public License 1.0", "MIT", "N/A"]
     },
     {
         type: 'input',
@@ -66,6 +78,12 @@ inquirer.prompt([{
         message: 'Please enter in your Email Address',
         name: 'email'
     }]).then(data => {const template = `# ${data.title}
+## Table of Contents:
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contribution](#contribution)
+* [Test](#test)
 Purpose: ${data.discription}
 
 Installation Instructions: ${data.instructions}
@@ -78,10 +96,10 @@ Test Instructions: ${data.test}
 
 License: ${data.license}
 
-# Username: ${data.username}
-
-# Email: ${data.email}`
+# Questions?
+Contact me with the sources below:
+${data.username}
+${data.email}`
     write(template)});
-
 
 
