@@ -6,18 +6,6 @@ function write(template) {
     writeFile('README.md', template, generateMarkdown, err => err ? console.error(err) : console.log('success') )
 }
 
-//     let badge = "";
-//     if(data.license == "MIT"){
-//         badge = "![License](https://img.shields.io/static/v1?label=License&message=MIT&color=blueviolet&style=plastic)"
-//     } else if (data.license == "Apache license 2.0"){
-//         badge = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
-//     } else if (data.license == "Boost Software License 1.0"){
-//         badge = "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)"
-//     } else if (data.license == "Eclipse Public License 1.0"){
-//         badge = "[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)"
-//     }
-// }
-
 inquirer.prompt([{
         type: 'input',
         message: 'What is your project title?',
@@ -64,7 +52,7 @@ inquirer.prompt([{
         message: 'Please enter in your Email Address',
         name: 'email'
     }]).then(data => {const template = `# ${data.title}
-## Table of Contents:
+# Table of Contents:
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
@@ -87,16 +75,3 @@ Contact me with the sources below:
 ${data.username}
 ${data.email}`
     write(template)});
-
-
-//     let badge = "";
-//     if(data.license == "MIT"){
-//         badge = "![License](https://img.shields.io/static/v1?label=License&message=MIT&color=blueviolet&style=plastic)"
-//     } else if (data.license == "Apache license 2.0"){
-//         badge = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
-//     } else if (data.license == "Boost Software License 1.0"){
-//         badge = "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)"
-//     } else if (data.license == "Eclipse Public License 1.0"){
-//         badge = "[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)"
-//     }
-// }
