@@ -1,24 +1,10 @@
-//TODO psudo code
-//needed questions for function
-//project title
-//discription, installation, usage, contribution guidelines, test instructions
-//license list, will be a function with options where they have to choose one, referance mini project for details.
-//enter in Github username
-//enter email Address
-
-// TODO: Include packages needed for this application
 const {writeFile} = require('fs')
 const inquirer = require("inquirer");
 const generateMarkdown = require("./generateMarkdown");
 
-// TODO: Create a function to write README file
-// hint: use the fs package to write file
 function write(template) {
     writeFile('README.md', template, generateMarkdown, err => err ? console.error(err) : console.log('success') )
 }
-// TODO: Create a function to initialize app
-// hint start asking the questions here
-// function generateBadge(data){
 
 //     let badge = "";
 //     if(data.license == "MIT"){
@@ -103,3 +89,14 @@ ${data.email}`
     write(template)});
 
 
+//     let badge = "";
+//     if(data.license == "MIT"){
+//         badge = "![License](https://img.shields.io/static/v1?label=License&message=MIT&color=blueviolet&style=plastic)"
+//     } else if (data.license == "Apache license 2.0"){
+//         badge = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+//     } else if (data.license == "Boost Software License 1.0"){
+//         badge = "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)"
+//     } else if (data.license == "Eclipse Public License 1.0"){
+//         badge = "[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)"
+//     }
+// }
