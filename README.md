@@ -1,19 +1,16 @@
-# Title
+# 
 Purpose: undefined
 
-Installation Instructions: Use installer to download. at website link
+Installation Instructions: 
 
-Usage Information: Usage information I don't actually kow what it is
+Usage Information: 
 
-Controbution Guidelines: Controbutions will be development of current project
+Controbution Guidelines: 
 
-Test Instructions: Test at least 7 times before continuing
+Test Instructions: 
 
-License: Academic Free License v3.0
+License: Academic Free License v3.0 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-# Username: Malletmania
+# Username: 
 
-# Email: email@email.com
-
-</body>
-</html>
+# Email: 
